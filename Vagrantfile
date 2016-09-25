@@ -54,6 +54,9 @@ Vagrant.configure(2) do |config|
 		vb.cpus    = settings['vagrant']['cpus']
 	end
 
+  # Fix Erro to print shell scripts
+  config.vm.provision "shell", inline: "(grep -q 'mesg n' /root/.profile && sed -i '/mesg n/d' /root/.profile && echo '') || exit 0;"
+
   # Config Services
   settings['start'].each do |service|
     puts "Service: #{service} -> #{[settings['vagrant']['log_file'], settings['vagrant']['host_name']].concat(settings['services'][service] ||= [])}"
