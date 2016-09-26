@@ -30,6 +30,10 @@ function phpInstall {
   printSuccess "Install module php5.6-xdebug"
   apt-get install php5.6-xdebug >> "${FILELOG}" 2>&1
 
+  printSuccess "Install module php5.6-mysql"
+  apt-get install php5.6-mysql >> "${FILELOG}" 2>&1
+
+
   #php5enmod xdebug >> "${FILELOG}" 2>&1
 
   # enable php mcrypt

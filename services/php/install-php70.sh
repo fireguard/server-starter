@@ -28,5 +28,8 @@ function phpInstall {
   printSuccess "Install module php7.0-xdebug"
   apt-get install php7.0-xdebug >> "${FILELOG}" 2>&1
 
+  printSuccess "Install module php7.0-mysql"
+  apt-get install php7.0-mysql >> "${FILELOG}" 2>&1
+
   return 0
 }
