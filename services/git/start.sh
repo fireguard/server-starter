@@ -2,9 +2,9 @@
 source /vagrant/scripts/functions.sh
 
 FILELOG=$1
-
-USER_NAME_GIT=$3
-EMAIL_GIT=$4
+VERSION=$3
+USER_NAME_GIT=$4
+EMAIL_GIT=$5
 
 printHeader "Start Git Service"
 
