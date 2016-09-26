@@ -33,7 +33,7 @@ Vagrant.configure(2) do |config|
       :mount_options => ['nolock,vers=3,udp,noatime']
 
   else
-    config.vm.synced_folder "", "/vagrant",
+    config.vm.synced_folder ".", "/vagrant",
       owner: "vagrant",
       group: "www-data",
       create: true,
@@ -59,7 +59,7 @@ Vagrant.configure(2) do |config|
 
   # Config Services
   settings['start'].each do |service|
-    puts "Service: #{service} -> #{[settings['vagrant']['log_file'], settings['vagrant']['host_name']].concat(settings['services'][service] ||= [])}"
+    # puts "Service: #{service} -> #{[settings['vagrant']['log_file'], settings['vagrant']['host_name']].concat(settings['services'][service] ||= [])}"
     config.vm.provision "shell" do |s|
       s.path = "services/#{service}/start.sh"
       s.args = [
