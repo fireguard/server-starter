@@ -5,13 +5,12 @@ vagrant:
  box_name: "ubuntu/xenial64"
  box_url: "ubuntu/xenial64"
  check_update: false
- synced_folder: "./../../Projects"
- nfs: false
+ synced_folder: "./../../Projects"  # Relative Path to Project
+ nfs: true
  memory: 2000  # 2 GB
- cpus: 2
+ cpus: 1
  gui: false
  log_file: "/vagrant/vagrant.log"
- domain_dev: "fireguard.dev"
 
 forwarders: # Format: service_port: host_port
    80: 80
@@ -19,25 +18,36 @@ forwarders: # Format: service_port: host_port
    3306: 3306
 
 start:  ## Define services for start
-  - php
+  - bootstrap
   - nginx
+  - php
+  - composer
+  - git
+  - unzip
+  - nodejs
+  - mysql
 
 services:
   bootstrap:
     - "America/Sao_Paulo" # timezone
+    - "fireguard.dev" # dev domain
 
   php:
-    - "7.0"      # version [default, 5.6, 7.0]
+    - "default"      # version [default, 7.0, 5.6]
 
   nginx:
-    - "default"  # version
+    - "default"  # version [default, 5.7]
 
   apache:
     - "default"  # version
 
   mysql:
     - "default"  # version
+    - "password" # Password for root
 
   git:
     - "Your Name"       # user name
     - "your@email.com"  # email
+
+  nodejs:
+    - "default" # version [default, 4, 6]

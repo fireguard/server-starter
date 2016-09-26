@@ -2,27 +2,68 @@
 
 # Requirements
 
-  - VirtualBox: https://www.virtualbox.org/wiki/Downloads (5.0.16)
-  - Vagrant:	https://www.vagrantup.com/downloads.html  (1.8.1)
+  - VirtualBox: https://www.virtualbox.org/wiki/Downloads (5.1.2)
+  - Vagrant:	https://www.vagrantup.com/downloads.html  (1.8.5)
 
 ## Plugins
-  - For OSX and Linux is recommended to install this plugins
-
-  ```
-  vagrant plugin install vagrant-bindfs
-  vagrant plugin install vagrant-triggers # redirect ports
-  ```
-  - For Windows is recommended to install this plugins
+  - This package required to install this plugins
   ```
     vagrant plugin install vagrant-vbguest
+
     vagrant plugin install vagrant-winnfsd
   ```
 
 ## Install and Use
 
-Before you begin, set the parameters using the file "settings.yml" for that use
-"setting.example.yml" file as a template.
+### Clone repository in local directory
+```
+  git clone https://github.com/fireguard/server-starter.git NAME_NEW_DIRECTORY
+```
+Ps.: You can download the zip file directly from github and extract it in the
+local folder
 
+### Set default parameters
+
+Before you begin, set the parameters using the file "settings.yml" for that
+use "setting.example.yml" file as a template.
+
+**Special attention to these parameters:**
+```
+vagrant:
+    ...
+    host_name: "srv-fireguard"
+    ...
+    synced_folder: "./../../Projects" # Relative Path to Project
+    ...
+    memory: 2000  # 2 GB
+    cpus: 2
+    ...
+services:
+    bootstrap:
+      ...
+      - "fireguard.dev" # dev domain
+    ...
+    mysql:
+      ...
+      - "password" # Password for root
+    git:
+      ...
+      - "Your Name"       # user name
+      - "your@email.com"  # email
+...
+```
+### Start the Virtual Machine
+
+```
+# This command start the virtual machine
+# Inside the machine folder created
+vagrant up
+
+# If an error occurs when booting the machine run the following commands
+vagrant reload
+vagrant provision
+
+```
 
 
 # Documentation for Reference
@@ -73,7 +114,7 @@ Before you begin, set the parameters using the file "settings.yml" for that use
   ```
   vagrant reload
   ```
-  
+
   - Remove box
   ```
   vagrant box remove ubuntu/xenial64 --box-version 20160627.0.0
