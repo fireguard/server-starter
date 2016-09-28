@@ -28,7 +28,7 @@ Vagrant.configure(2) do |config|
       :nfs => true,
       :mount_options => ['nolock,vers=3,udp,noatime']
 
-    config.vm.synced_folder settings['vagrant']['synced_folder'], "/home/vagrant/www",
+    config.vm.synced_folder settings['vagrant']['synced_folder'], "/projects",
       :nfs => true,
       :mount_options => ['nolock,vers=3,udp,noatime']
 
@@ -39,7 +39,7 @@ Vagrant.configure(2) do |config|
       create: true,
       :mount_options => ["dmode=777","fmode=777"]
 
-    config.vm.synced_folder settings['vagrant']['synced_folder'], "/home/vagrant/www",
+    config.vm.synced_folder settings['vagrant']['synced_folder'], "/projects",
       owner: "vagrant",
       group: "www-data",
       create: true,

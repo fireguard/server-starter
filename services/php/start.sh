@@ -29,9 +29,9 @@ else
 fi
 
 # Generate default php page
-if [ -f "/home/vagrant/www/index.php" ]; then
+if [ -f "/projects/index.php" ]; then
   printSuccess "Index file exist"
 else
   printSuccess "Create default file for the Web Server"
-  echo "<?= phpinfo();  ?>" > /home/vagrant/www/index.php
+  echo "<?= phpinfo();  ?>" > /projects/index.php
 fi

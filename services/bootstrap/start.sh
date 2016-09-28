@@ -26,12 +26,12 @@ echo "127.0.1.1		${HOSTNAME}" >> /etc/hosts
 echo "127.0.0.1		${DOMAIN_DEV}" >> /etc/hosts
 
 # Generate SSH Key
-if [ -e "/home/vagrant/.ssh/id_rsa" ]; then
+if [ -e "/home/ubuntu/.ssh/id_rsa" ]; then
   printSuccess "SSH keys exist"
 else
   printSuccess "Generate SSH keys"
-  mkdir -p /home/vagrant/.ssh
-  ssh-keygen -t rsa -N "" -f /home/vagrant/.ssh/id_rsa >> "${FILELOG}" 2>&1
+  mkdir -p /home/ubuntu/.ssh
+  ssh-keygen -t rsa -N "" -f /home/ubuntu/.ssh/id_rsa >> "${FILELOG}" 2>&1
 fi
 
 # Initial Update
