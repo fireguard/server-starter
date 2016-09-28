@@ -8,22 +8,13 @@ source /vagrant/scripts/functions.sh
 printHeader "Start PHP Service"
 
 if [ "$VERSION" == "7.0" ] || [ "$VERSION" == "default" ]; then
+  source /vagrant/services/php/install-php70.sh
+  phpInstall FILELOG
 
-  INSTALED=$( checkIsInstaled php7.0 )
-  if [ "$INSTALED" == "false" ]; then
-    source /vagrant/services/php/install-php70.sh
-    phpInstall FILELOG
-  else
-    printSuccess "PHP 7.0 is installed"
-  fi
 elif [ "$VERSION" == "5.6" ]; then
-  INSTALED=$( checkIsInstaled php5.6 )
-  if [ "$INSTALED" == "false" ]; then
-    source /vagrant/services/php/install-php56.sh
-    phpInstall FILELOG
-  else
-    printSuccess "PHP 5.6 is installed"
-  fi
+  source /vagrant/services/php/install-php56.sh
+  phpInstall FILELOG
+
 else
   printError "${VERSION} is not valid"
 fi

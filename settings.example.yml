@@ -19,8 +19,8 @@ forwarders: # Format: service_port: host_port
 
 start:  ## Define services for start
   - bootstrap
-  - nginx
   - php
+  - nginx
   - composer
   - git
   - unzip
