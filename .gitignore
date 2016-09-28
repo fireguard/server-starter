@@ -2,3 +2,5 @@
 .idea/
 hosts/*.conf
 settings.yml
+*.log
+services/bootstrap/.bashrc

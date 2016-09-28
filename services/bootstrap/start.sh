@@ -34,6 +34,12 @@ else
   ssh-keygen -t rsa -N "" -f /home/ubuntu/.ssh/id_rsa >> "${FILELOG}" 2>&1
 fi
 
+# Update BashRC
+if [ -f "/vagrant/services/bootstrap/.bashrc" ]; then
+    printSuccess "Replacing the default configuration file for Bashrc if there"
+    cp -rf /vagrant/services/bootstrap/.bashrc /home/ubuntu/.bashrc >> "${FILELOG}" 2>&1
+fi
+
 # Initial Update
 if [ -f "/var/vagrant_initial_update" ]; then
   printSuccess "Initial update has already been made"
