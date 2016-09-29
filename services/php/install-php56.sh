@@ -93,23 +93,11 @@ function phpInstall {
     apt-get install -y php5.6-zip >> "${FILELOG}" 2>&1
   fi
 
-
-  #php5enmod xdebug >> "${FILELOG}" 2>&1
-
-  # enable php mcrypt
-  # php5enmod mcrypt >> "${FILELOG}" 2>&1
-  # replace config file php.ini
-  # if [ -f "/vagrant/services/php/php56.ini" ]; then
-  #   printSuccess "Replacing the default configuration file for php.ini if there"
-  #   if [ -d "/etc/php5/apache2" ]; then
-  #     cp -rf /vagrant/services/php/php56.ini /etc/php5/apache2/php.ini >> "${FILELOG}" 2>&1
-  #   fi
-  #
-  #   if [ -d "/etc/php5/apache2" ]; then
-  #     cp -rf /vagrant/services/php/php56.ini /etc/php5/apache2/php.ini >> "${FILELOG}" 2>&1
-  #   fi
-  #
-  # fi
+  INSTALED=$( checkIsInstaled php5.6-bz2 )
+  if [ "$INSTALED" == "false" ]; then
+    printSuccess "Install module php5.6-bz2"
+    apt-get install -y php5.6-bz2 >> "${FILELOG}" 2>&1
+  fi
 
   return 0
 }

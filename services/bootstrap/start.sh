@@ -32,6 +32,8 @@ else
   printSuccess "Generate SSH keys"
   mkdir -p /home/ubuntu/.ssh
   ssh-keygen -t rsa -N "" -f /home/ubuntu/.ssh/id_rsa >> "${FILELOG}" 2>&1
+  chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa
+  chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa.pub
 fi
 
 # Update BashRC

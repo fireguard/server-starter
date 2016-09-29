@@ -93,5 +93,11 @@ function phpInstall {
     apt-get install -y php7.0-zip >> "${FILELOG}" 2>&1
   fi
 
+  INSTALED=$( checkIsInstaled php7.0-bz2 )
+  if [ "$INSTALED" == "false" ]; then
+    printSuccess "Install module php7.0-bz2"
+    apt-get install -y php7.0-bz2 >> "${FILELOG}" 2>&1
+  fi
+  
   return 0
 }
