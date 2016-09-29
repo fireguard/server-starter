@@ -66,25 +66,31 @@ function phpInstall {
   INSTALED=$( checkIsInstaled php5.6-gd )
   if [ "$INSTALED" == "false" ]; then
     printSuccess "Install module php5.6-gd"
-    apt-get install php5.6-gd >> "${FILELOG}" 2>&1
+    apt-get install -y php5.6-gd >> "${FILELOG}" 2>&1
   fi
 
-  INSTALED=$( checkIsInstaled php5.6-xdebug )
+  INSTALED=$( checkIsInstaled php-xdebug )
   if [ "$INSTALED" == "false" ]; then
     printSuccess "Install module php5.6-xdebug"
-    apt-get install php5.6-xdebug >> "${FILELOG}" 2>&1
+    apt-get install -y php5.6-xdebug >> "${FILELOG}" 2>&1
   fi
 
   INSTALED=$( checkIsInstaled php5.6-mysql )
   if [ "$INSTALED" == "false" ]; then
     printSuccess "Install module php5.6-mysql"
-    apt-get install php5.6-mysql >> "${FILELOG}" 2>&1
+    apt-get install -y php5.6-mysql >> "${FILELOG}" 2>&1
   fi
 
   INSTALED=$( checkIsInstaled php5.6-mbstring )
   if [ "$INSTALED" == "false" ]; then
     printSuccess "Install module php5.6-mbstring"
-    apt-get install php5.6-mbstring >> "${FILELOG}" 2>&1
+    apt-get install -y php5.6-mbstring >> "${FILELOG}" 2>&1
+  fi
+
+  INSTALED=$( checkIsInstaled php5.6-zip )
+  if [ "$INSTALED" == "false" ]; then
+    printSuccess "Install module php5.6-zip"
+    apt-get install -y php5.6-zip >> "${FILELOG}" 2>&1
   fi
 
 
