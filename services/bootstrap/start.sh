@@ -46,6 +46,9 @@ fi
 if [ -f "/var/vagrant_initial_update" ]; then
   printSuccess "Initial update has already been made"
 else
+  printSuccess "Remove default apache install for ubuntu server"
+  apt-get purge -y `dpkg -l | grep apache| awk '{print $2}' |tr "\n" " "` >> "${FILELOG}" 2>&1
+
   printSuccess "Running the update server packages"
   apt-get update >> "${FILELOG}" 2>&1
   apt-get upgrade -y >> "${FILELOG}" 2>&1
