@@ -15,8 +15,7 @@ DOMAIN_DEV=$4
 
 # Configure timezone
 printSuccess "Setting default system timezone"
-rm -f /etc/timezone >> "${FILELOG}" 2>&1
-echo '${TIMEZONE}' > /etc/timezone
+timedatectl set-timezone ${TIMEZONE}
 dpkg-reconfigure -f noninteractive tzdata >> "${FILELOG}" 2>&1
 
 # Generate hosts file
