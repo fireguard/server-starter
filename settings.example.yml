@@ -25,6 +25,7 @@ start:  ## Define services for start
   - git
   - unzip
   - nodejs
+  - npm
   - mysql
   - redis
 
