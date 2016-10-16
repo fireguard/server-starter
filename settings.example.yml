@@ -26,6 +26,7 @@ start:  ## Define services for start
   - unzip
   - nodejs
   - mysql
+  - redis
 
 services:
   bootstrap:
