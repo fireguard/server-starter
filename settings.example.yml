@@ -28,6 +28,7 @@ start:  ## Define services for start
   - npm
   - mysql
   - redis
+  - ruby
 
 services:
   bootstrap:
@@ -53,3 +54,7 @@ services:
 
   nodejs:
     - "default" # version [default, 4, 6]
+    
+  ruby:
+    - "default" # version [default]
+    - "compass" # packages
