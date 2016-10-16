@@ -14,12 +14,14 @@ if [ "$INSTALED" == "false" ]; then
     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - >> "${FILELOG}" 2>&1
     apt-get install -y nodejs >> "${FILELOG}" 2>&1
     apt-get install -y build-essential >> "${FILELOG}" 2>&1
+    ln -s /usr/bin/nodejs /usr/bin/node
 
   elif [ "$VERSION" == "4" ]; then
     printSuccess "Install NodeJs 4"
     curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - >> "${FILELOG}" 2>&1
     apt-get install -y nodejs >> "${FILELOG}" 2>&1
     apt-get install -y build-essential >> "${FILELOG}" 2>&1
+    ln -s /usr/bin/nodejs /usr/bin/node
   else
     printError "${VERSION} is not valid"
   fi
