@@ -20,12 +20,21 @@ fi
 
 INSTALED=$( checkIsInstaled git )
 if [ "$INSTALED" == "false" ]; then
-
   printSuccess "Install Git"
 	apt-get -y install git >> "${FILELOG}" 2>&1
 
 else
   printSuccess "Git is installed"
+fi
+
+INSTALED=$( checkIsInstaled git-flow )
+if [ "$INSTALED" == "false" ]; then
+
+  printSuccess "Install Git Flow"
+	apt-get -y install git-flow >> "${FILELOG}" 2>&1
+
+else
+  printSuccess "Git Flow is installed"
 fi
 
 printSuccess "Configuring Git Client : ${USER_NAME_GIT} <${EMAIL_GIT}>"
