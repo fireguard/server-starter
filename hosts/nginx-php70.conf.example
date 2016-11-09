@@ -9,6 +9,9 @@ server {
 
     server_name _;
 
+    client_max_body_size 50m;
+    client_body_timeout 120s;
+
     location / {
         # First attempt to serve request as file, then
         # as directory, then fall back to displaying a 404.
