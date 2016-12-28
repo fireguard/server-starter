@@ -13,9 +13,10 @@ vagrant:
  log_file: "/vagrant/vagrant.log"
 
 forwarders: # Format: service_port: host_port
-   80: 80
-   443: 443
-   3306: 3306
+   80: 80 # Nginx || Apache
+   443: 443 # Nginx || Apache
+   3306: 3306 # MySQL
+   27017: 27017 # MongoDB
 
 start:  ## Define services for start
   - bootstrap
@@ -29,6 +30,7 @@ start:  ## Define services for start
   - mysql
   - redis
   - ruby
+  - mongodb
 
 services:
   bootstrap:
@@ -54,7 +56,10 @@ services:
 
   nodejs:
     - "default" # version [default, 4, 6]
-    
+
   ruby:
     - "default" # version [default]
     - "compass" # packages
+
+  mongodb:
+    - "default" # version [default, 3.4]
